@@ -14,10 +14,12 @@ module RubyDanfe
     end
 
     def render
-      if @xml.at_css('infNFe/ide')
+      if @xml.at_css('nfeProc')
         RubyDanfe.render @xml.to_s, :danfe
-      else
+      elsif @xml.at_css('cteProc')
         RubyDanfe.render @xml.to_s, :dacte
+      elsif @xml.at_css('ListaNfse')
+        RubyDanfe.render @xml.to_s, :danfse
       end
     end
 

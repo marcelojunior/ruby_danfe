@@ -21,8 +21,12 @@ module RubyDanfe
       @document.respond_to?(method_name, include_private) || super
     end
 
-    def ititle(h, w, x, y, title)
-      self.text_box title, :size => 10, :at => [x.cm, Helper.invert(y.cm) - 2], :width => w.cm, :height => h.cm, :style => :bold
+    def ititle(h, w, x, y, title, align = :left)
+      self.text_box title, :size => 10, :at => [x.cm, Helper.invert(y.cm) - 2], :width => w.cm, :height => h.cm, :style => :bold, :align => (align != :left ? align : :left)
+    end
+
+    def itext(h, w, x, y, text, style = :normal)
+      self.text_box text, :size => 7, :at => [x.cm, Helper.invert(y.cm) - 2], :width => w.cm, :height => h.cm, :style => (style != :normal ? style : :normal)
     end
 
     def ibarcode(h, w, x, y, info)

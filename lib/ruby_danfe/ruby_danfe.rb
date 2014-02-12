@@ -20,8 +20,10 @@ module RubyDanfe
 
     if type == :danfe
       generator = DanfeGenerator.new(xml)
-    else
+    elsif type == :dacte
       generator = DacteGenerator.new(xml)
+    elsif type == :danfse
+      generator = DanfseGenerator.new(xml)
     end
 
     pdf = generator.generatePDF
